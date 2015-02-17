@@ -36,14 +36,14 @@ def main(argv):
     f.writelines(ln)
     f.close()
 
-    f = open('pybdf.py', 'r')
+    f = open('wavpy.py', 'r')
     ln = f.readlines()
     f.close()
     for i in range(len(ln)):
         if ln[i].strip().split('=')[0].strip() == "__version__":
             ln[i] = '__version__ = "' + gittag +'"\n'
 
-    f = open('pybdf.py', 'w')
+    f = open('wavpy.py', 'w')
     f.writelines(ln)
     f.close()
 

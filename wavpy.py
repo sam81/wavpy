@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-#   Copyright (C) 2013-2014 Samuele Carcagno <sam.carcagno@gmail.com>
+#   Copyright (C) 2013-2015 Samuele Carcagno <sam.carcagno@gmail.com>
 #   This file is part of wavpy
 
 #    wavpy is free software: you can redistribute it and/or modify
@@ -20,6 +20,7 @@
 """
 Module for reading and writing WAV files. It is a simple but convenient wrapper to the scipy.io.wavfile module.
 """
+from __future__ import division
 from scipy.io import wavfile
 from tempfile import mkstemp
 import platform, os, subprocess

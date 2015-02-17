@@ -1,6 +1,7 @@
 #!/usr/bin/make -f
 
 #DH_VERBOSE=1
+export PYBUILD_NAME=wavpy
 
 PYTHON2=$(shell pyversions -vr)
 PYTHON3=$(shell py3versions -vr)
@@ -22,7 +23,7 @@ install-python%:
 	python$* setup.py install --root=$(CURDIR)/debian/tmp --install-layout=deb
 
 override_dh_auto_install: 
-	python3 setup.py install --root=debian/wavpy --install-layout=deb --install-lib=/usr/lib/python3/dist-packages/
+	python$* setup.py install --root=debian/python3-wavpy --install-layout=deb --install-lib=/usr/lib/python$*/dist-packages/
 
 override_dh_pysupport:
 	
