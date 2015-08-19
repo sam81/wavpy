@@ -10,28 +10,5 @@ PYTHON3=$(shell py3versions -vr)
 export http_proxy = http://127.0.9.1:9
 
 %:
-	dh $@ --with python3  
+	dh $@ --with python2,python3 --buildsystem=pybuild 
 
-
-build-python%:
-	python$* setup.py build
-
-override_dh_auto_build: $(PYTHON3:%=build-python%)
-	dh_auto_build
-
-install-python%:
-	python$* setup.py install --root=$(CURDIR)/debian/tmp --install-layout=deb
-
-override_dh_auto_install: 
-	python$* setup.py install --root=debian/python3-wavpy --install-layout=deb --install-lib=/usr/lib/python$*/dist-packages/
-
-override_dh_pysupport:
-	
-
-override_dh_python3:
-	
-
-override_dh_auto_clean:
-	dh_auto_clean
-	rm -rf build
-	rm -rf *.egg-info
