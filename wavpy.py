@@ -24,7 +24,7 @@ from __future__ import division
 from scipy.io import wavfile
 from tempfile import mkstemp
 import platform, os, subprocess
-from numpy import int16, int32
+from numpy import float32, int16, int32
 
 def wavread(fname):
     """
@@ -54,6 +54,9 @@ def wavread(fname):
     elif snd.dtype == "int32":
         snd = snd / (2.**31)
         nbits = 32
+    elif snd.dtype == "float32":
+        nbits = 32
+        
     return snd, fs, nbits
 
 

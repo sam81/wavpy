@@ -5,7 +5,7 @@ from numpy.distutils.core import setup
 from numpy.distutils.core import Extension
 
 setup(name="wavpy",    
-    version="0.2.5",
+    version="0.2.6",
       py_modules=["wavpy"],
       author="Samuele Carcagno",
       author_email="sam.carcagno@gmail.com;",
