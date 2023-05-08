@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Introduction &#8212; wavpy 0.2.7 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to wavpy’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">Author<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Samuele Carcagno</p>
+</dd>
+</dl>
+<p>Module for reading and writing WAV files using MATLAB-style wavread and wavwrite functions. It is a simple but convenient wrapper to the scipy.io.wavfile module.</p>
+</section>
+<section id="module-wavpy">
+<span id="wavpy-module-to-read-and-write-wavs"></span><span id="module-label"></span><h1><a class="reference internal" href="#module-wavpy" title="wavpy"><code class="xref py py-mod docutils literal notranslate"><span class="pre">wavpy</span></code></a> – Module to read and write WAVs<a class="headerlink" href="#module-wavpy" title="Permalink to this heading">¶</a></h1>
+<p>Module for reading and writing WAV files. It is a simple but convenient wrapper to the wave module and the scipy.io.wavfile module.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="wavpy.sound">
+<span class="sig-prename descclassname"><span class="pre">wavpy.</span></span><span class="sig-name descname"><span class="pre">sound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">snd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">48000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nbits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wavpy.html#sound"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#wavpy.sound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Play out a numpy array through the soundcard.</p>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h2>
+<dl class="simple">
+<dt>snd<span class="classifier">array of floats</span></dt><dd><p>The sound to be played.</p>
+</dd>
+<dt>fs<span class="classifier">int</span></dt><dd><p>Sampling frequency of the sound.</p>
+</dd>
+<dt>nbits<span class="classifier">int</span></dt><dd><p>Desired bit depth.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sound</span><span class="p">(</span><span class="n">snd</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="mi">48000</span><span class="p">,</span> <span class="n">nbits</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wavpy.wavread">
+<span class="sig-prename descclassname"><span class="pre">wavpy.</span></span><span class="sig-name descname"><span class="pre">wavread</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wavpy.html#wavread"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#wavpy.wavread" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a WAV file into a numpy array.</p>
+<section id="id1">
+<h2>Parameters<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<dl class="simple">
+<dt>fName<span class="classifier">string</span></dt><dd><p>Name of the WAV file to read</p>
+</dd>
+<dt>scale<span class="classifier">boolean</span></dt><dd><p>Option valid only for the PCM wave format. If <cite>True</cite> the
+data will be returned as floaring point values ranging
+between -1 and 1. If <cite>False</cite> the data will be returned
+as the closest numpy integer type to the WAV bit depth,
+with values randing within the bit depth range.</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h2>Returns<a class="headerlink" href="#returns" title="Permalink to this heading">¶</a></h2>
+<p>snd : numpy array with the sound.</p>
+<p>fs : sampling frequency.</p>
+<p>nbits : bit depth.</p>
+</section>
+<section id="id2">
+<h2>Examples<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">snd</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nbits</span> <span class="o">=</span> <span class="n">wavread</span><span class="p">(</span><span class="s2">&quot;file.wav&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wavpy.wavwrite">
+<span class="sig-prename descclassname"><span class="pre">wavpy.</span></span><span class="sig-name descname"><span class="pre">wavwrite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nbits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'PCM'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wavpy.html#wavwrite"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#wavpy.wavwrite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a numpy array as a WAV file.</p>
+<section id="id3">
+<h2>Parameters<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<dl class="simple">
+<dt>data<span class="classifier">array of floats</span></dt><dd><p>The data to be written to the WAV file.</p>
+</dd>
+<dt>fs<span class="classifier">int</span></dt><dd><p>Sampling frequency of the sound.</p>
+</dd>
+<dt>nbits<span class="classifier">int</span></dt><dd><p>Bit depth of the WAV file (currently only values of 16 and 32 are supported)</p>
+</dd>
+<dt>fName<span class="classifier">string</span></dt><dd><p>Name of the WAV file.</p>
+</dd>
+<dt>scale<span class="classifier">boolean</span></dt><dd><p>Option valid only for the PCM wave format. If the data are floating point
+values ranging from -1 to 1 and scale is set to <cite>True</cite> they will be converted
+to the range of the appropriate integer type (according to the chosen bit depth).
+If scale is set to <cite>False</cite> it is assumed that the values are already in the range
+of the appropriate integer type (e.g. between -2**15 and 2**15-1 for 16 bits).
+Note that if <cite>wave_format</cite> is set to <cite>IEEE_FLOAT</cite> the data are never scaled.</p>
+</dd>
+</dl>
+</section>
+<section id="id4">
+<h2>Examples<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wavwrite</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">48000</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="s2">&quot;file.wav&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">wavpy</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#module-wavpy"><code class="xref py py-mod docutils literal notranslate"><span class="pre">wavpy</span></code> – Module to read and write WAVs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#wavpy.sound"><code class="docutils literal notranslate"><span class="pre">sound()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#wavpy.wavread"><code class="docutils literal notranslate"><span class="pre">wavread()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#wavpy.wavwrite"><code class="docutils literal notranslate"><span class="pre">wavwrite()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to wavpy’s documentation!</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2013-2023, Samuele Carcagno.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/intro.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

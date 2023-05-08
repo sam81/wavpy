@@ -13,7 +13,7 @@ def main(argv):
         if opt in ("-m", "--message"):
             message = arg
     major_v = 0
-    minor_v = 2
+    minor_v = 3
 
     f = open('prep-release/minor_minor_number.txt', 'r')
     ln = f.readlines()
@@ -25,7 +25,7 @@ def main(argv):
     builddate = datetime.datetime.now().strftime("%d-%b-%Y %H:%M")
     gittag = str(major_v) + '.' + str(minor_v) + '.' + str(minor_minor_v)
     print(gittag)
-    f = open('setup.py', 'r')
+    f = open('pyproject.toml', 'r')
     ln = f.readlines()
     f.close()
     for i in range(len(ln)):
@@ -48,7 +48,7 @@ def main(argv):
     f.close()
 
 
-    f = open('doc/conf.py', 'r')
+    f = open('doc_src/conf.py', 'r')
     ln = f.readlines()
     f.close()
     for i in range(len(ln)):

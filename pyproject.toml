@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "wavpy"
-    version="0.3.1",
+version = "0.2.7"
 authors = [
   { name="Samuele Carcagno", email="sam.carcagno@gmail.com" },
 ]
